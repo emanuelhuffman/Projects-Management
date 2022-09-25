@@ -5,7 +5,7 @@ conn = sqlite3.connect("projects.db")
 cursor = conn.cursor()
 
 # statuses enum
-class Statuses:
+class Statuses():
     active = 'active'
     completed = 'completed'
     planned = 'planned'
@@ -45,7 +45,7 @@ def deleteProject(project_id):
 
 # Read managers from db
 def getManagers():
-    query = "SELECT first_name, last_name, email FROM managers"
+    query = "SELECT id, first_name, last_name, email FROM managers"
     return cursor.execute(query).fetchall()
 
 # Fill tables with dummy data
