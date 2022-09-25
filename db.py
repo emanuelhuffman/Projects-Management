@@ -50,11 +50,12 @@ def getManagers():
 
 # Fill tables with dummy data
 def seedDB():
-    managers = [('Fred', 'Smith', 'smith@gmail.com'), ('John', 'Doe', 'joe@gmail.com')]
+    managers = [('Fred', 'Smith', 'smith@gmail.com'), ('John', 'Doe', 'joe@gmail.com'), ('Howie', 'Doohan', 'doohan@gmail.com'), ('Tim', 'Burr', 'burr@gmail.com')]
     cursor.executemany("INSERT INTO managers (first_name, last_name, email) VALUES (?, ?, ?)", managers)
 
     projects = [('RadWorks Project', 'The overarching objective of the RadWorks project is to mature and demonstrate affordable, enabling solutions that mitigate radiation-related challenges of human exploration beyond Earth\'s orbit', 'active', 1),
     ('Advanced Modular Power Systems Project', 'AMPS prpoject is infusing new tech into power systems and components and proving their capabilities through exploration-based ground demonstrations.', 'planned', 1),
-    ('Lunar Crater Radio Telescope', 'In Phase 1, we explored the fundamental physics and cosmoloy underlying the scientific objective of LCRT...', 'completed', 2)]
+    ('Lunar Crater Radio Telescope', 'In Phase 1, we explored the fundamental physics and cosmoloy underlying the scientific objective of LCRT...', 'completed', 2),
+    ('Solar Electric Propulsion', 'The Solar Electric Propulsion Project shall develop and qualify an advanced 12.5 kW EP thruster applicable to human/robotic exploration and commercial spaceflight missions including the Power and Propulsion Element', 'completed', 3)]
     cursor.executemany("INSERT INTO projects (title, description, status, manager_id) VALUES (?,?,?,?)", projects)
     conn.commit()
